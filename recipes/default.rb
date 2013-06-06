@@ -31,4 +31,7 @@ apt_repository "rcrowley" do
   key "apt_key.gpg"
 end
 
-package "freight"
+package "freight" do
+  action :nothing
+  subscribes :install, 'apt_repository[rcrowley]'
+end
